@@ -39,14 +39,14 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/mic-drop.png" # Default image for sharing
+      image: "/assets/mic-drop.gif" # Default image for sharing
 
 # 6. Site settings
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
 title: "Mic drop" # Site name or title, also used in jekyll-seo-tag
 logo: "/assets/logo.svg" # Site logo, also used in jekyll-seo-tag
-description: "Alembic is a starting point for Jekyll projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately" # Site description and default description, also used in jekyll-seo-tag
+description: "Imma not gonna let you finish" # Site description and default description, also used in jekyll-seo-tag
 url: "https://mic-drop.netlify.com" # Site url, also used in jekyll-seo-tag
 baseurl: ""
 repo: "https://github.com/daviddarnes/mic-drop"
