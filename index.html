@@ -1,39 +1,57 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Mic drop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    {% seo %}
+    {% include favicons.html %}
   </head>
   <style media="screen">
     body {
+      margin: 0;
       min-height: 100vh;
       display: grid;
       place-items: center;
-      font-size: 10vw;
+      font-size: 8vw;
+      overflow-y: hidden;
     }
 
-    span {
+    .mic, .hand {
+      font-size: inherit;
       grid-area: 1 / 1;
     }
 
     .hand {
-      cursor: pointer;
-      transform: rotate(-38deg) translateX(-20%) translateY(1%);
+      border: none;
+      background: none;
+      padding: 0;
+      outline: none;
+      transform: var(--hand-transform, rotate(-38deg) translateX(-20%) translateY(1%));
     }
 
     .mic {
-      transition: 1s ease-in;
-      transform: translateY(var(--drop, 0)) rotate(var(--spin, 0deg));
+      transition: transform .8s ease-in;
+      transform: translateY(var(--mic-drop, 0)) rotate(var(--mic-turn, 0deg));
     }
   </style>
   <body>
     <span class="mic">🎤</span>
-    <span class="hand">👊</span>
+    <button data-dropped="false" aria-label="Drop mic" class="hand">👊</button>
     <script type="text/javascript">
-      document.querySelector('.hand').addEventListener('click', event => {
-        event.target.innerHTML = `✋`
-        document.querySelector('.mic').style = `--drop: 60vh; --spin: 900deg`
+      const $ = selector => document.querySelector(selector)
+      $('.hand').addEventListener('click', ({ target }) => {
+        if (target.dataset.dropped == "false") {
+          target.dataset.dropped = "true"
+          target.innerHTML = `🖐`
+          $('.mic').style = `--mic-drop: 60vh; --mic-turn: 40deg`
+          $('.hand').style = `--hand-transform: none`
+        } else {
+          target.dataset.dropped = "false"
+          target.innerHTML = `👊`
+          $('.mic').removeAttribute('style')
+          $('.hand').removeAttribute('style')
+        }
       })
     </script>
   </body>
