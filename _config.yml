@@ -44,7 +44,7 @@ defaults:
 # 6. Site settings
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
-title: "Mic drop" # Site name or title, also used in jekyll-seo-tag
+title: "Mic Drop" # Site name or title, also used in jekyll-seo-tag
 logo: "/assets/logo.svg" # Site logo, also used in jekyll-seo-tag
 description: "Drop the mic" # Site description and default description, also used in jekyll-seo-tag
 url: "https://mic-drop.netlify.com" # Site url, also used in jekyll-seo-tag
