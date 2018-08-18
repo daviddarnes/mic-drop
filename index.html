@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mic drop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  </head>
+  <style media="screen">
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-size: 10vw;
+    }
+
+    span {
+      grid-area: 1 / 1;
+    }
+
+    .hand {
+      cursor: pointer;
+      transform: rotate(-38deg) translateX(-20%) translateY(1%);
+    }
+
+    .mic {
+      transition: 1s ease-in;
+      transform: translateY(var(--drop, 0)) rotate(var(--spin, 0deg));
+    }
+  </style>
+  <body>
+    <span class="mic">🎤</span>
+    <span class="hand">👊</span>
+    <script type="text/javascript">
+      document.querySelector('.hand').addEventListener('click', event => {
+        event.target.innerHTML = `✋`
+        document.querySelector('.mic').style = `--drop: 60vh; --spin: 900deg`
+      })
+    </script>
+  </body>
+</html>
