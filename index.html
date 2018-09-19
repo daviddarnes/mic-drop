@@ -24,6 +24,13 @@
       grid-area: 1 / 1;
     }
 
+    img {
+      vertical-align: middle;
+      width: 10vw;
+      height: auto;
+      padding-bottom: 38%;
+    }
+
     .hand {
       border: none;
       background: none;
@@ -67,6 +74,11 @@
         $('.hand').style = `--hand-transform: none`
       }
 
+      const deal = target => {
+        target.dataset.dropped = "true"
+        $('.mic').style = `--mic-drop: 0; --mic-turn: 0`
+      }
+
       const pickup = target => {
         target.dataset.dropped = "false"
         target.innerHTML = `👊`
@@ -84,6 +96,14 @@
 
       if (searchParams.has('drop')) {
         setTimeout(() => drop($('.hand')), 1000)
+      }
+
+      if (searchParams.has('rafa')) {
+        $('.hand').innerHTML = `<img src="/assets/rafa.png" />`;
+        $('.hand').style = `--hand-transform: none`;
+        $('.mic').style = `--mic-drop: -60vh`;
+        $('.mic').innerHTML = `🕶`;
+        setTimeout(() => deal($('.hand')), 1000)
       }
     </script>
     <footer>
